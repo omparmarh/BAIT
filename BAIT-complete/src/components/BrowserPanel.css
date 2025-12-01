@@ -1,0 +1,243 @@
+.browser-panel {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.browser-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.browser-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.browser-tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.browser-tabs button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.browser-tabs button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.browser-tabs button.active {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: 600;
+}
+
+/* Search Section */
+.search-section,
+.scrape-section {
+    margin-top: 16px;
+}
+
+.search-bar,
+.scrape-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.search-input,
+.scrape-input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 0.95em;
+}
+
+.search-input::placeholder,
+.scrape-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-btn,
+.scrape-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-btn:hover:not(:disabled),
+.scrape-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.search-btn:disabled,
+.scrape-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Results Container */
+.results-container,
+.scrape-results {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.loading,
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 0.7;
+}
+
+.results-count {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.result-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 14px;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.result-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.result-title {
+    color: white;
+    text-decoration: none;
+    font-size: 1.05em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.result-title:hover {
+    text-decoration: underline;
+}
+
+.result-url {
+    font-size: 0.85em;
+    opacity: 0.7;
+    word-break: break-all;
+}
+
+/* Scrape Data */
+.scrape-data {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.data-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.data-section h5 {
+    margin: 0 0 12px 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.text-preview {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    line-height: 1.6;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+}
+
+.text-stats {
+    font-size: 0.85em;
+    opacity: 0.7;
+}
+
+.links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.link-item a {
+    color: #74b9ff;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.link-item a:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateX(4px);
+}
+
+.more-links {
+    padding: 8px 12px;
+    text-align: center;
+    font-size: 0.85em;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+/* Scrollbar */
+.results-container::-webkit-scrollbar,
+.scrape-results::-webkit-scrollbar,
+.text-preview::-webkit-scrollbar {
+    width: 6px;
+}
+
+.results-container::-webkit-scrollbar-thumb,
+.scrape-results::-webkit-scrollbar-thumb,
+.text-preview::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}

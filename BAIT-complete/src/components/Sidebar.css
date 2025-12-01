@@ -1,0 +1,409 @@
+/* ═══════════════════════════ SIDEBAR CONTAINER ═══════════════════════════ */
+.sidebar {
+    width: 260px;
+    height: 100%;
+    background: var(--color-bg-secondary);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+/* ═══════════════════════════ SIDEBAR HEADER ═══════════════════════════ */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid var(--color-border);
+    gap: 8px;
+    flex-shrink: 0;
+    min-height: 60px;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: opacity var(--transition-fast);
+}
+
+.sidebar.collapsed .sidebar-header h2 {
+    opacity: 0;
+    display: none;
+}
+
+.collapse-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.collapse-btn:hover {
+    background: rgba(0, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+/* ═══════════════════════════ NEW CHAT BUTTON ═══════════════════════════ */
+.new-chat-btn {
+    margin: 12px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, var(--color-primary), #0080ff);
+    border: none;
+    color: #000;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 212, 255, 0.3);
+}
+
+.new-chat-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.4);
+}
+
+.sidebar.collapsed .new-chat-btn {
+    padding: 10px;
+    width: calc(100% - 24px);
+    font-size: 18px;
+    text-align: center;
+}
+
+/* ═══════════════════════════ CONVERSATIONS LIST ═══════════════════════════ */
+.conversations-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 12px;
+}
+
+.conversations-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.conversations-list::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.conversations-list::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-hover);
+}
+
+/* Empty / Loading states */
+.loading,
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    text-align: center;
+    color: var(--color-text-muted);
+    flex: 1;
+}
+
+.empty-state p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+.empty-state small {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Conversation item */
+.conversation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.conversation-item:hover {
+    background: rgba(0, 255, 255, 0.05);
+    border-color: var(--color-border-hover);
+    transform: translateX(4px);
+}
+
+.conversation-item.active {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: var(--color-primary);
+}
+
+.conversation-content {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.conversation-item h4 {
+    margin: 0 0 4px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.conversation-item p {
+    margin: 0 0 6px 0;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meta {
+    font-size: 11px;
+    color: var(--color-text-muted);
+}
+
+/* Collapsed state - hide text content */
+.sidebar.collapsed .conversation-content {
+    display: none;
+}
+
+.sidebar.collapsed .conversation-item {
+    justify-content: center;
+    padding: 8px;
+}
+
+/* Delete button */
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    opacity: 0;
+}
+
+.conversation-item:hover .delete-btn {
+    opacity: 1;
+    color: var(--color-error);
+}
+
+.delete-btn:hover {
+    background: rgba(255, 100, 100, 0.1);
+    transform: scale(1.2);
+}
+
+.sidebar.collapsed .delete-btn {
+    display: none;
+}
+
+/* ═══════════════════════════ SIDEBAR FOOTER ═══════════════════════════ */
+.sidebar-footer {
+    padding: 12px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+    background: var(--color-bg-secondary);
+}
+
+.refresh-btn {
+    flex: 1;
+    padding: 8px 12px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
+    color: var(--color-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+}
+
+.refresh-btn:hover:not(:disabled) {
+    background: rgba(0, 255, 255, 0.2);
+    border-color: var(--color-border-hover);
+    transform: translateY(-1px);
+}
+
+.refresh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.sidebar.collapsed .refresh-btn {
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* ═══════════════════════════ RESPONSIVE BREAKPOINTS ═══════════════════════════ */
+
+/* Large Tablet: Below 1100px */
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .sidebar.collapsed {
+        width: 56px;
+    }
+}
+
+/* Tablet: Below 1024px */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .sidebar.collapsed {
+        width: 50px;
+    }
+
+    .sidebar-header {
+        padding: 12px;
+    }
+
+    .new-chat-btn {
+        margin: 10px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Mobile: Below 768px - Sidebar becomes overlay */
+@media (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 260px;
+        z-index: 200;
+        box-shadow: var(--shadow-lg);
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+        width: 260px;
+    }
+
+    /* Add overlay backdrop */
+    .sidebar::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-normal);
+        z-index: -1;
+    }
+
+    .sidebar.open::before {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+/* Small Mobile: Below 480px */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .sidebar-header {
+        padding: 10px;
+    }
+
+    .sidebar-header h2 {
+        font-size: 14px;
+    }
+
+    .new-chat-btn {
+        margin: 8px;
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .conversations-list {
+        padding: 6px 8px;
+        gap: 6px;
+    }
+
+    .conversation-item {
+        padding: 8px;
+    }
+
+    .conversation-item h4 {
+        font-size: 11px;
+    }
+
+    .conversation-item p {
+        font-size: 11px;
+    }
+
+    .sidebar-footer {
+        padding: 8px;
+    }
+
+    .refresh-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+}
+
+/* ═══════════════════════════ ACCESSIBILITY ═══════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+    .sidebar,
+    .conversation-item,
+    .new-chat-btn,
+    .refresh-btn {
+        transition: none !important;
+    }
+}

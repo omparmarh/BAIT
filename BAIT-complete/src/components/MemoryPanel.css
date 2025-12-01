@@ -1,0 +1,247 @@
+.memory-panel {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.memory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.memory-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.memory-stats {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.85em;
+}
+
+/* Search */
+.memory-search {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.95em;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+/* Add Memory */
+.memory-add {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.memory-textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.95em;
+    resize: vertical;
+    margin-bottom: 12px;
+    font-family: inherit;
+}
+
+.memory-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.memory-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.type-select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+}
+
+.type-select option {
+    background: #2c3e50;
+}
+
+.importance-slider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.importance-slider label {
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+.importance-slider input[type="range"] {
+    flex: 1;
+}
+
+.add-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+}
+
+/* Filter */
+.memory-filter {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.memory-filter button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.memory-filter button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.memory-filter button.active {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+/* Memory List */
+.memory-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.memory-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.memory-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+.memory-item {
+    display: flex;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+}
+
+.memory-item:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateX(4px);
+}
+
+.memory-icon {
+    font-size: 1.5em;
+    flex-shrink: 0;
+}
+
+.memory-content {
+    flex: 1;
+}
+
+.memory-text {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.memory-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.8em;
+    opacity: 0.8;
+    flex-wrap: wrap;
+}
+
+.memory-type {
+    text-transform: capitalize;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.memory-importance {
+    font-weight: 600;
+}
+
+.memory-date {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.loading,
+.no-memories {
+    text-align: center;
+    padding: 40px;
+    opacity: 0.6;
+}

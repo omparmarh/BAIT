@@ -1,0 +1,144 @@
+.voice-input-container {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2a5298 100%);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  color: white;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.voice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.voice-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.voice-status {
+  font-size: 0.9em;
+}
+
+.status-active {
+  color: #00ff88;
+  font-weight: 600;
+  animation: pulse 1.5s infinite;
+}
+
+.status-inactive {
+  color: #888;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Waveform */
+.waveform-container {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.waveform-canvas {
+  border-radius: 8px;
+}
+
+/* Controls */
+.voice-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.provider-select {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.provider-select:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.provider-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.provider-select option {
+  background: #1e3a5f;
+  color: white;
+}
+
+.voice-button {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.voice-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+}
+
+.voice-button.active {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.voice-button.active:hover {
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4);
+}
+
+/* Wake Word Status */
+.wake-word-status {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.wake-word-text {
+  margin: 0;
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+/* Last Command */
+.last-command {
+  background: rgba(0, 255, 136, 0.1);
+  border-left: 3px solid #00ff88;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.9em;
+}
+
+.last-command strong {
+  color: #00ff88;
+}

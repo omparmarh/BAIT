@@ -1,0 +1,161 @@
+# BAIT PRO ULTIMATE - Complete Python Requirements
+# All dependencies for the enhanced system
+
+# ═══════════════════════════════════════════════════════════════
+# CORE WEB FRAMEWORK
+# ═══════════════════════════════════════════════════════════════
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+websockets==12.0
+python-dotenv==1.0.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# ═══════════════════════════════════════════════════════════════
+# AI & LLM
+# ═══════════════════════════════════════════════════════════════
+openai==1.3.8
+anthropic==0.7.8
+
+# Embeddings & Vector DB
+sentence-transformers==2.2.2
+chromadb==0.4.18
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 1: VOICE CONTROL
+# ═══════════════════════════════════════════════════════════════
+SpeechRecognition==3.10.0
+pyaudio==0.2.14
+pyttsx3==2.90
+
+# Wake word detection (optional)
+# pv porcupine==2.1.0  # Requires API key
+
+# VAD (Voice Activity Detection)
+webrtcvad==2.0.10
+
+# Advanced TTS
+edge-tts==6.1.9
+
+# Audio processing
+librosa==0.10.1
+pydub==0.25.1
+soundfile==0.12.1
+numpy==1.24.3
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 2: AVATAR LIP SYNC
+# ═══════════════════════════════════════════════════════════════
+# (Uses librosa from above)
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 3: SCREEN CONTEXT & VISION
+# ═══════════════════════════════════════════════════════════════
+opencv-python==4.8.1
+pillow==10.1.0
+pytesseract==0.3.10
+
+# Face recognition
+face-recognition==1.3.0
+dlib==19.24.0  # Required for face_recognition
+
+# Gesture & emotion detection
+mediapipe==0.10.8
+deepface==0.0.79
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 4: AUTOMATION & WORKFLOWS
+# ═══════════════════════════════════════════════════════════════
+schedule==1.2.0
+python-crontab==3.0.0
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 5: MEMORY SYSTEM
+# ═══════════════════════════════════════════════════════════════
+# SQLAlchemy for database ORM
+sqlalchemy==2.0.23
+
+# Already included above:
+# chromadb for vector storage
+# sentence-transformers for embeddings
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 6: WEB BROWSING AGENT
+# ═══════════════════════════════════════════════════════════════
+selenium==4.15.2
+webdriver-manager==4.0.1
+playwright==1.40.0
+beautifulsoup4==4.12.2
+lxml==4.9.3
+requests==2.31.0
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 7: CAMERA & GESTURES
+# ═══════════════════════════════════════════════════════════════
+# (Covered by opencv-python, mediapipe, face-recognition above)
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 8: FILE MANAGEMENT
+# ═══════════════════════════════════════════════════════════════
+send2trash==1.8.2
+whoosh==2.7.4
+pathlib==1.0.1  # Built-in for Python 3.4+
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 9: API INTEGRATIONS
+# ═══════════════════════════════════════════════════════════════
+# Spotify
+spotipy==2.23.0
+
+# Google APIs (Gmail, Calendar)
+google-auth==2.25.2
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+google-api-python-client==2.110.0
+
+# Weather
+python-weather==1.0.3
+
+# News
+newsapi-python==0.2.7
+
+# Email
+email-validator==2.1.0
+
+# ═══════════════════════════════════════════════════════════════
+# PHASE 10: DESKTOP CONTROL
+# ═══════════════════════════════════════════════════════════════
+pyautogui==0.9.54
+pygetwindow==0.0.9
+pynput==1.7.6
+pywin32==306  # Windows-specific
+
+# Screen capture
+mss==9.0.1
+
+# ═══════════════════════════════════════════════════════════════
+# DATABASE
+# ═══════════════════════════════════════════════════════════════
+# SQLite is built-in
+aiosqlite==0.19.0  # Async SQLite
+
+# ═══════════════════════════════════════════════════════════════
+# UTILITIES
+# ═══════════════════════════════════════════════════════════════
+psutil==5.9.6  # System monitoring
+pydantic-settings==2.1.0
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Logging & monitoring
+loguru==0.7.2
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2  # For testing FastAPI
+
+# Development
+black==23.12.0
+flake8==6.1.0
+mypy==1.7.1

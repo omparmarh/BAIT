@@ -1,0 +1,297 @@
+/* ═══════════════════════════ CSS VARIABLES ═══════════════════════════ */
+:root {
+    /* Colors */
+    --color-bg-primary: #0f1419;
+    --color-bg-secondary: #1a1f2e;
+    --color-bg-tertiary: #242938;
+    --color-bg-surface: #2a2f3e;
+
+    --color-primary: #00d4ff;
+    --color-secondary: #6464ff;
+    --color-accent: #ff6b9d;
+    --color-error: #ff6464;
+
+    --color-text-primary: #e8eaed;
+    --color-text-secondary: #9aa0a6;
+    --color-text-muted: #5f6368;
+
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-border-light: rgba(255, 255, 255, 0.05);
+    --color-border-hover: rgba(0, 212, 255, 0.3);
+
+    /* Gradients */
+    --gradient-bg: linear-gradient(135deg, #0f1419 0%, #1a1f2e 100%);
+    --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0080ff 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.25s ease-in-out;
+    --transition-slow: 0.4s ease-in-out;
+}
+
+/* ═══════════════════════════ GLOBAL RESET ═══════════════════════════ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    font-size: 16px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    overflow: hidden;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+/* ═══════════════════════════ APP SHELL ═══════════════════════════ */
+.app-container {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    overflow: hidden;
+    position: relative;
+}
+
+/* ═══════════════════════════ HEADER BAR ═══════════════════════════ */
+.app-header {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 20px;
+    height: 60px;
+    background: linear-gradient(to right, var(--color-bg-secondary), var(--color-bg-tertiary));
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    flex: 1;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+    white-space: nowrap;
+}
+
+.header-left p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-right {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* ═══════════════════════════ MAIN LAYOUT ═══════════════════════════ */
+.app-main {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ═══════════════════════════ BAIT PRO ULTIMATE NAVIGATION ═══════════════════════════ */
+.feature-nav {
+    display: flex;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    overflow-x: auto;
+    flex-shrink: 0;
+}
+
+.feature-nav::-webkit-scrollbar {
+    height: 4px;
+}
+
+.feature-tab {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.feature-tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+}
+
+.feature-tab.active {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+    font-weight: 600;
+}
+
+.ultimate-main {
+    display: block !important;
+    overflow-y: auto;
+}
+
+.feature-panel {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* ═══════════════════════════ RESPONSIVE BREAKPOINTS ═══════════════════════════ */
+
+/* Large Tablet: 1100px and below */
+@media (max-width: 1100px) {
+    .app-main {
+        grid-template-columns: 240px minmax(0, 1fr);
+    }
+}
+
+/* Tablet: 1024px and below */
+@media (max-width: 1024px) {
+    .app-header {
+        padding: 10px 16px;
+        height: 56px;
+    }
+
+    .header-left h1 {
+        font-size: 20px;
+    }
+
+    .app-main {
+        grid-template-columns: 220px minmax(0, 1fr);
+    }
+}
+
+/* Mobile: 768px and below - Sidebar becomes overlay */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 10px 14px;
+        height: 52px;
+    }
+
+    .header-left h1 {
+        font-size: 18px;
+    }
+
+    .header-left p {
+        display: none;
+    }
+
+    /* Stack layout - sidebar becomes overlay */
+    .app-main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+/* Small Mobile: 480px and below */
+@media (max-width: 480px) {
+    .app-header {
+        padding: 8px 12px;
+        height: 48px;
+    }
+
+    .header-left h1 {
+        font-size: 16px;
+    }
+}
+
+/* ═══════════════════════════ SCROLLBAR STYLING ═══════════════════════════ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-hover);
+}
+
+/* ═══════════════════════════ ACCESSIBILITY ═══════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}

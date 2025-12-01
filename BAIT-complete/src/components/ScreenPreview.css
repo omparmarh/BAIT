@@ -1,0 +1,244 @@
+.screen-preview-container {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    max-width: 900px;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.screen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.screen-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.screen-controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.auto-refresh {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.auto-refresh input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.interval-select {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+}
+
+.interval-select option {
+    background: #1a1a2e;
+}
+
+.capture-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.capture-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(50, 130, 184, 0.4);
+}
+
+.capture-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Screenshot Display */
+.screenshot-display {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder {
+    text-align: center;
+    opacity: 0.6;
+}
+
+.placeholder-icon {
+    font-size: 4em;
+    margin-bottom: 16px;
+}
+
+.placeholder p {
+    margin: 0 0 20px 0;
+    font-size: 1.1em;
+}
+
+.start-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(135deg, #3282b8 0%, #0f4c75 100%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(50, 130, 184, 0.4);
+}
+
+.screenshot-wrapper {
+    width: 100%;
+}
+
+.screenshot-placeholder {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Mock Screenshot */
+.mock-screenshot {
+    background: #2c3e50;
+    padding: 20px;
+    min-height: 250px;
+}
+
+.mock-window {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.mock-titlebar {
+    background: #34495e;
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.85em;
+}
+
+.mock-content {
+    padding: 20px;
+}
+
+.mock-text-line {
+    height: 12px;
+    background: linear-gradient(90deg, #ecf0f1 0%, #bdc3c7 100%);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.mock-text-line.short {
+    width: 60%;
+}
+
+/* Analysis Results */
+.analysis-results {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.analysis-results h4 {
+    margin: 0 0 16px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.analysis-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.analysis-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    font-size: 2em;
+    flex-shrink: 0;
+}
+
+.card-content {
+    flex: 1;
+}
+
+.card-label {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.card-value {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* Error Details */
+.error-details {
+    background: rgba(231, 76, 60, 0.1);
+    border-left: 3px solid #e74c3c;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.error-details h5 {
+    margin: 0 0 12px 0;
+    color: #e74c3c;
+    font-size: 1em;
+}
+
+.error-details ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.error-details li {
+    margin-bottom: 6px;
+    font-size: 0.9em;
+}

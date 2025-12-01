@@ -1,0 +1,257 @@
+.desktop-agent {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.desktop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.desktop-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.refresh-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.refresh-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.refresh-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Action Notification */
+.action-notification {
+    background: rgba(46, 204, 113, 0.2);
+    border-left: 3px solid #2ecc71;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Quick Actions */
+.quick-actions {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.quick-actions h4 {
+    margin: 0 0 12px 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    padding: 16px 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+.action-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-icon {
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+
+.btn-label {
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* Window List */
+.window-list-section {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.window-list-section h4 {
+    margin: 0 0 12px 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.window-list {
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.window-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.window-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.window-item.selected {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.window-icon {
+    font-size: 1.3em;
+    flex-shrink: 0;
+}
+
+.window-title {
+    flex: 1;
+    font-size: 0.9em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.window-badge {
+    background: rgba(46, 204, 113, 0.3);
+    color: #2ecc71;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+}
+
+/* Window Controls */
+.window-controls {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.window-controls h4 {
+    margin: 0 0 12px 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.selected-window-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
+}
+
+.selected-window-info strong {
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 8px;
+}
+
+.control-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+}
+
+.control-btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9em;
+}
+
+.control-btn.maximize {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.control-btn.minimize {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+.control-btn.close {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.loading,
+.no-windows {
+    text-align: center;
+    padding: 30px;
+    opacity: 0.6;
+}
+
+/* Scrollbar */
+.window-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.window-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}

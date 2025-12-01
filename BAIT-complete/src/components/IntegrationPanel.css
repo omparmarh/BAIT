@@ -1,0 +1,248 @@
+.integration-panel {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    max-width: 1000px;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.integration-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.integration-header h3 {
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.refresh-integrations {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.refresh-integrations:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Integration Grid */
+.integration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.integration-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 18px;
+    transition: all 0.3s;
+}
+
+.integration-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.integration-icon {
+    font-size: 1.8em;
+}
+
+.integration-name {
+    flex: 1;
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
+    animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.card-body {
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.integration-status {
+    font-size: 0.85em;
+    opacity: 0.9;
+    text-transform: capitalize;
+}
+
+/* Controls */
+.integration-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.control-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+}
+
+.control-btn.large {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2em;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.connect-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.connect-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.action-btn {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 500;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Integration Info */
+.integration-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-item {
+    font-size: 0.9em;
+}
+
+.info-item strong {
+    margin-right: 6px;
+}
+
+/* Weather Specific */
+.weather-info {
+    text-align: center;
+    margin-top: 4px;
+}
+
+.temperature {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.condition {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+/* Setup Instructions */
+.setup-instructions {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.setup-instructions h4 {
+    margin: 0 0 12px 0;
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+.setup-instructions p {
+    margin: 0 0 12px 0;
+    opacity: 0.9;
+}
+
+.setup-instructions code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+.instruction-code {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+}
+
+.instruction-code pre {
+    margin: 0;
+    font-size: 0.85em;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+}
