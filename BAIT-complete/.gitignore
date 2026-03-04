@@ -1,0 +1,52 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+
+# Environment
+.env
+*.env
+
+# Databases
+*.db
+*.sqlite3
+memory.db
+
+# Logs
+*.log
+backend.log
+frontend.log
+
+# Node.js
+node_modules/
+npm-debug.log*
+
+# Build output
+dist-electron/
+release/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp files
+$null
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+
+# Large model files
+*.pt
+*.pth
+*.bin
+*.onnx

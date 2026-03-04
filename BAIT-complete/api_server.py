@@ -1051,19 +1051,16 @@ async def create_conversation(request: ChatRequest):
         
         # Check for commands
         response_text, command_executed = await process_command(user_message)
-        
-        # If command executed
-        if command_executed and response_text:
-            # ADD TO CHAT IMMEDIATELY
+
+        # If command executed (even if response_text is a plain string)
+        if command_executed:
+            response_text = response_text or "Done!"
             conversation["messages"].append({"role": "user", "content": user_message})
             conversation["messages"].append({"role": "assistant", "content": response_text})
             conversations_db[conv_id] = conversation
-            
-            # THEN speak in background
             speak_text(response_text)
-            
             return conversation
-        
+
         # If no command, check if needs web research
         if not response_text:
             needs_research = any(keyword in user_lower for keyword in RESEARCH_KEYWORDS)
@@ -1135,10 +1132,23 @@ NEVER output code or JSON. Always speak like a human."""
                 speak_text(response_text, emotion=detected_emotion)
                 
                 return conversation
-        
+
+        # Safety fallback: should never reach here, but guard against None return
+        if not conversation["messages"] or conversation["messages"][-1]["role"] != "assistant":
+            fallback = "I'm not sure how to handle that, but I'm here to help!"
+            conversation["messages"].append({"role": "user", "content": user_message})
+            conversation["messages"].append({"role": "assistant", "content": fallback})
+            conversations_db[conv_id] = conversation
+            speak_text(fallback)
+        return conversation
+
     except Exception as e:
         print(f"Error in conversation: {e}")
-        return {"error": str(e), "id": conv_id}
+        # Always return a valid conversation dict so chat_endpoint never gets None
+        conversation["messages"].append({"role": "user", "content": user_message})
+        conversation["messages"].append({"role": "assistant", "content": f"Sorry, something went wrong: {e}"})
+        conversations_db[conv_id] = conversation
+        return conversation
 # ═══════════════════════════════════════════════════════════════
 # CHAT ENDPOINT - FIXED FOR COMMAND EXECUTION
 # ═══════════════════════════════════════════════════════════════
@@ -1167,25 +1177,33 @@ async def chat_endpoint(request: ChatRequest):
         print(f"💬 NO COMMAND - USING AI...")
         
         conversation = await create_conversation(request)
-        
+
+        # Guard: create_conversation should always return a dict now
+        if not conversation or not isinstance(conversation, dict):
+            return {
+                "status": "success",
+                "response": "I'm here to help!",
+                "conversation_id": 1,
+                "emotion": "neutral"
+            }
+
         if "messages" in conversation:
             for msg in reversed(conversation["messages"]):
                 if msg.get("role") == "assistant":
-                    response = msg["content"]
-                    
-                    # STRIP ANY JSON/CODE FORMATTING
+                    response = msg["content"] or "I'm here to help!"
+
+                    # Strip any accidental JSON/code formatting
                     if response.startswith('{') or response.startswith('<'):
                         response = "I processed that for you!"
-                    
+
                     print(f"🤖 AI: {response}")
-                    
                     return {
                         "status": "success",
                         "response": response,
-                        "conversation_id": 1,
+                        "conversation_id": conversation.get("id", 1),
                         "emotion": "neutral"
                     }
-        
+
         return {
             "status": "success",
             "response": "I'm here to help!",
